@@ -1,0 +1,354 @@
+Git: - Source control (code) Management
+
+To store all your codes in a centralized platform
+
+Companies provide git access:
+
+github.com, gitlab.com, aws, azure, gcp
+
+
+----------------------------------------------------
+
+Earlier for controlling the source they use SCM
+
+SCM is one kind of source control platform.
+
+
+Git is the current trend for source code/ source control
+
+
+----------------------------------------------------
+
+
+Predomnant everyone in industry uses Github(Microsoft recently purchased)
+
+----------------------------------------------------
+
+
+10 members in a company
+
+(Every one works in their personal computer)
+
+Database Developers and their work shift:
+
+Ashif --- 9 - 5 
+Rizwan --- 5 - 12
+Ashika ---- 12 -- 9
+
+Centralized database - MySQL database -- its a tool
+
+Family company:
+
+Database -> Family
+
+Tables:
+
+Customer
+Supplier
+Orderdetails
+Products
+
+Front end developers requesting 20 sql statements:
+
+Ashif --- 10 SQL statements --- save --- local computer
+
+Rizwan --- 10 sql statements --- save -- local laptop
+
+Ashika --- 10 sql statements --- save --- local laptop
+
+
+Github --- centralized storage space for storing only codes(Java, Python, SQL)
+
+
+Repository -- family
+
+Set only public
+
+Create repo
+
+
+
+Create new file:
+
+-------------------------------------------------------------------------------------
+
+
+Repository -- It is nothing but a folder
+
+Branch -- kind of subfolders
+
+commit -- any changes made in the repository specific to branches
+
+New Pull Request - to merge files from one branch to another branch
+
+Clone -- a copy of repository in local(Do not download)
+
+----------------------------------------------------------------
+
+Git commands:
+
+Go to Powershell to execute the below commands:
+
+cd .. - to go back previous folder
+
+cd (folder name) -- to move to the specific folder
+
+ls - to list all the folders and files inside a folder
+
+-----------------------------------------------------------
+
+To clone the repository to the local computer:
+
+git clone https://github.com/syedsumx/family.git
+
+
+
+Navigate the the cloned folder -- using cd (foldername)
+
+
+Make any changes to the files inside the family folder
+
+then save it 
+
+
+
+adding the file saved through git
+
+
+git add --all
+
+
+commiting changes in the local git
+
+
+git commit -m 'message to be specified'
+
+
+To push the committed changes to the github
+
+git push
+
+It might ask you to login for the first time
+
+
+Then you can see the changes in the github respect to the branch
+
+
+
+--------------------------------------------------
+
+
+to view the list of branches inside the repository:
+
+git branch -a
+
+
+It lists all the branches and highlights the current branch using a *
+
+
+
+To cahnge to the specific branch
+
+
+git checkout ashif
+
+
+------------------------------------------------------------
+
+
+git pull
+
+
+To pull the latest changes made in the branch
+
+
+
+------------------------------------------------------------
+
+
+
+
+upload repositry from local system repository to git hub --- repository --- remote repository
+
+commands :
+create a new folder and navigate to it through power shell
+
+git init
+
+git config --global user.name "Ashif1998"
+
+
+git config --global user.email "ashifbritto@gmail.com"
+
+
+
+git add --all
+
+git commit -m "st command"
+
+
+go to git hub create a repository and copy the orgin command and paste in power shell and run
+
+git remote add origin https://github.com/Ashif1998/st.git
+
+to check whether it is saved correctly ;
+
+git remote -v
+
+finally push the changes to remote repository [note : add orgin master for start of new repository]
+
+git push origin master
+
+--------------------------------------------------
+
+Add SSH AGENT (Security purpose)
+
+use git bash :
+
+first check whether it is in ~(root folder admin-> user)
+
+ssh-keygen  ( to generate key )
+
+{give name , for password just press enter and skip }
+
+
+{ then go to the admin-> user -> and check for the "name".pub that you gave add that in git hub ssh key part}
+
+
+eval 'ssh-agent'
+
+
+ ssh-add ~/ashif
+
+--------------------------------------------------
+STATUS:
+
+to know the status of your current branch,
+
+git status
+
+It gives the changes, commit information
+
+
+----------------------------------------------------
+
+Logs:
+
+To find the commit information in local git
+
+git log --oneline
+
+
+-------------------------------------------------
+
+To delete a branch:
+
+git branch -d (Branchname)
+
+
+---------------------------------------------------
+
+
+git fetch origin ashif
+
+If you do a fetch before merge thn you dont need to pull
+---------------------------------------
+
+To merge two branches:
+
+git merge (branchname - which is to be merged with your current branch)
+
+
+----------------------------------------------------
+
+After merge you have to do a Pull:
+
+
+git pull origin master ----  or the specific branch name
+
+---------------------------------------------
+
+After that do a push:
+
+git push
+
+--------------------------------------------------
+Rebase:
+
+git rebase
+
+
+
+master  
+
+
+1
+
+2
+          ashika
+3--------> 3          
+
+4	   4
+
+5          5
+
+
+first create a branch from master
+
+git branch -a
+
+to check whether your in master branch
+
+git checkout -b ashika
+
+
+(make a change in the file)
+
+and add the file and commit in ashika branch but dont push
+
+
+git checkout master
+
+(make a change in the file)
+
+and add the file and commit in master branch but dont push
+
+
+Now move back to ashika branch
+
+
+git checkout ashika
+
+git rebase master
+
+
+
+Now again move back to master branch
+
+
+git checkout master
+
+git rebase ashika
+
+
+Now both the branches looks similar 
+
+
+git log --oneline
+
+
+Now you can push the changes to the remote repo
+
+--------------------------------------------------------------------
+
+
+git cherrypick (taking a particular commit using the commit number )
+(to know the commit number give git log --oneline)
+
+
+--------------------------------------------------------------------
+
+ git reset
+
+
+
